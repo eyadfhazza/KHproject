@@ -13,6 +13,8 @@
                     @foreach($allusers as $user)
                         <div class="col-md-8">
                             <div class="alert alert-success" role="alert">
+                                <button class="btn btn-danger float-right ml-3 "> حذف</button>
+                                <button class="btn btn-info float-right "> تعديل</button>
                                <p>{{$user->first_name}}</p>
                             </div>
                         </div>

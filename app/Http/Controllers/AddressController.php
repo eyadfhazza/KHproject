@@ -13,4 +13,11 @@ class AddressController extends Controller
         $address=Address::with(['customer'])->paginate(5);
         return view('controller.Address.show_address')->with(['alladdress'=>$address]);
     }
+
+    public  function delete(Request $request){
+        $id=$request->input('address_id');
+        Address::destroy($id);
+        return redirect()->back();
+
+    }
 }

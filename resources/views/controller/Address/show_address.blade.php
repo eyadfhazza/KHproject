@@ -10,12 +10,19 @@
                     <div class="card-header">Melas</div>
                     <div class="card-body">
 
-                        @foreach($alladdress as $addres)
+                        </div>
+                        @foreach($alladdress as $address)
                             <div class="col-md-8">
                                 <div class="alert alert-success" role="alert">
-                                    <h5>Address:  {{$addres->description}} </h5>
+                                    <form action="{{route('address')}}" method="post">
+                                        @csrf
+                                        <input type="hidden" name="_method" value="delete">
+                                        <input type="hidden" name="address_id" value="{{$address->id}}">
+                                        <button type="submit" class="btn btn-danger float-right ml-3 "> حذف</button>
+                                    </form>
 
-
+                                    <button class="btn btn-info float-right "> تعديل</button>
+                                    <h5>Address:  {{$address->description}} </h5>
 
                                 </div>
                             </div>

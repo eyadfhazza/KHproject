@@ -13,9 +13,18 @@
                         @foreach($allreviews as $review)
                             <div class="col-md-8">
                                 <div class="alert alert-success" role="alert">
+                                    <form action="{{route('reviews')}}" method="POST">
+                                        @csrf
+                                        <input type="hidden" name="_method" value="delete">
+                                        <input type="hidden" name="rev_id" value="{{$review->id}}">
+                                        <button type="submit" class="btn btn-danger float-right ml-3 "> حذف</button>
+                                    </form>
+                                    <button class="btn btn-info float-right "> تعديل</button>
+
                                     <h5>{{$review->customer->first_name}} {{$review->customer->last_name}}</h5>
+                                    <h5>{{$review->meal->name}}</h5>
                                     <p>{{$review->review}}</p>
-                                    <p>{{$review->stars}}</p>
+                                    <p>{{$review->stars}} <i class="fas fa-star"></i></p>
                                     <p>{{$review->formattedtime()}}</p>
                                 </div>
                             </div>

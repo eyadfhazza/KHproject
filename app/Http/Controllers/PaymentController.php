@@ -9,7 +9,7 @@ class PaymentController extends Controller
 {
     public function index(){
 
-        $payments=Payment::all();
+        $payments=Payment::with('customer')->get();
         return view('Controller.Payments.show_payments')->with(['allpayments'=>$payments]);
     }
 }
